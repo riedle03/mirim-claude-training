@@ -1186,31 +1186,31 @@
   <div class="timeline-title">전체 구성</div>
   <div class="timeline">
     <div class="tl-item">
-      <button class="tl-btn" onclick="scrollTo('part1')">
+      <button class="tl-btn" onclick="goToPart(1)">
         <span class="part-label">PART 1</span>사진으로 웹페이지 만들기
       </button>
     </div>
     <div class="tl-arrow"></div>
     <div class="tl-item">
-      <button class="tl-btn" onclick="scrollTo('part2')">
+      <button class="tl-btn" onclick="goToPart(2)">
         <span class="part-label">PART 2</span>인터랙션 & PPTX 변환
       </button>
     </div>
     <div class="tl-arrow"></div>
     <div class="tl-item">
-      <button class="tl-btn" onclick="scrollTo('part3')">
+      <button class="tl-btn" onclick="goToPart(3)">
         <span class="part-label">PART 3</span>Claude Code 설치
       </button>
     </div>
     <div class="tl-arrow"></div>
     <div class="tl-item">
-      <button class="tl-btn" onclick="scrollTo('part4')">
+      <button class="tl-btn" onclick="goToPart(4)">
         <span class="part-label">PART 4</span>실전 활용
       </button>
     </div>
     <div class="tl-arrow"></div>
     <div class="tl-item">
-      <button class="tl-btn" onclick="scrollTo('part5')">
+      <button class="tl-btn" onclick="goToPart(5)">
         <span class="part-label">PART 5</span>명령어 & 마무리
       </button>
     </div>
@@ -1931,6 +1931,13 @@ function saveActiveStep(n) {
 function scrollToEl(id) {
   var el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== TIMELINE NAV =====
+var _partFirstStep = {1:1, 2:5, 3:7, 4:13, 5:16};
+function goToPart(partNum) {
+  var firstStep = _partFirstStep[partNum];
+  if (firstStep) sidebarStep(firstStep);
 }
 
 // ===== DARK MODE =====
