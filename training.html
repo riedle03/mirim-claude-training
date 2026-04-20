@@ -1516,18 +1516,26 @@
       </div>
       <div class="notice tip">
         <span class="notice-icon">✅</span>
-        <div>버전 번호(예: <code>1.x.x</code>)가 출력되면 설치 성공입니다!</div>
+        <div>버전 번호(예: <code>1.x.x</code>)가 출력되면 설치 성공입니다! → STEP 11로 넘어가세요.</div>
       </div>
-      <button class="collapse-toggle" onclick="toggleCollapse('fix10')">
-        <span class="collapse-icon">▶</span> "'claude'을(를) 찾을 수 없습니다" 오류 해결
-      </button>
-      <div class="collapse-body" id="fix10">
-        PATH 환경변수에 Claude가 설치된 경로를 추가해야 합니다. 아래 명령을 실행하세요:
-        <div class="code-wrap" style="margin-top:10px;">
-          <div class="code-block cmd" id="p10fix">[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\.localin", "User")</div>
-          <button class="copy-btn" onclick="copyCode('p10fix', this)">📋 복사</button>
+
+      <div class="notice danger">
+        <span class="notice-icon">🚨</span>
+        <div>
+          <strong>"'claude'을(를) 찾을 수 없습니다" 오류가 뜨나요?</strong>
+          <p style="margin-top:8px;">컴퓨터가 Claude가 어디 설치되었는지 모르는 상태입니다.<br>아래 <strong>환경변수 설정</strong> 명령어를 그대로 복사해서 PowerShell에 붙여넣고 Enter를 누르세요.</p>
         </div>
-        실행 후 PowerShell을 <strong>완전히 닫고 다시 열어서</strong> <code>claude --version</code>을 다시 시도하세요.
+      </div>
+      <div class="code-wrap">
+        <div class="code-block cmd" id="p10fix">[System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\.local\bin", "User")</div>
+        <button class="copy-btn" onclick="copyCode('p10fix', this)">📋 복사</button>
+      </div>
+      <div class="notice warning">
+        <span class="notice-icon">⚠️</span>
+        <div>
+          <strong>반드시 PowerShell을 완전히 닫고 다시 연 뒤</strong> <code>claude --version</code>을 다시 입력하세요.<br>
+          (닫지 않으면 환경변수가 적용되지 않습니다)
+        </div>
       </div>
     </div>
   </div>
