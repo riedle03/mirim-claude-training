@@ -1,0 +1,10 @@
+*.b64
+*.dl.b64
+*.py
+*.js
+*.md
+*.jpg
+*.pptx
+*.txt
+portfolio*.html
+.omc/
